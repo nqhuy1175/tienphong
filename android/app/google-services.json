@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "816615720340",
+    "firebase_url": "https://odin-e7c69.firebaseio.com",
+    "project_id": "odin-e7c69",
+    "storage_bucket": "odin-e7c69.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:816615720340:android:1d0588f930792156e47b81",
+        "android_client_info": {
+          "package_name": "com.simtienphong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "816615720340-41g8v99u6fel38gp9gineb5tqutuf0h6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.simtienphong",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "816615720340-rbpd9anqatdm89qddbiukc0oukrhbvpt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBMsyXtLM-bPIjjoEQJdYlLToua69Giloo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "816615720340-rbpd9anqatdm89qddbiukc0oukrhbvpt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
