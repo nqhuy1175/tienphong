@@ -23,7 +23,6 @@ DerivedData
 
 # Android/IntelliJ
 #
-build/
 .idea
 .gradle
 local.properties
@@ -57,3 +56,16 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+
+coverage/
+
+ios/Podfile.lock
+
+config/
+
+yarn.lock
+
+android/app/release/
+android/app/release/*
+
+src/modules/socket/config.json
