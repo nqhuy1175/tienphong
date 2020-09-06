@@ -9,6 +9,11 @@ type DebounceFunction = CallbackFunction & {
 
 type ObjectType = {[key: string]: any | any[]};
 
+interface ObjectIdentify {
+  id: number;
+  name: string;
+}
+
 interface DeviceInfo {
   osName: string;
   osVersion: string;
@@ -27,4 +32,10 @@ interface NavigationConstants {
   backButtonId: string;
   topBarHeight: number;
   bottomTabsHeight: number;
+}
+
+interface Category {
+  id: number;
+  name: string;
+  image: string;
 }

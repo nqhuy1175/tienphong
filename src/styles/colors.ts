@@ -5,6 +5,7 @@ const Colors = {
   deepskyblue: '#06BDE8',
   darkturquoise: '#01F1D6',
   aquamarine: '#8FF8DA',
+  gray: '#fafafa',
   lightslategray: '#9A9B9B',
   lavenderblush: '#EDD8FE',
   midnightblue: '#261F75',

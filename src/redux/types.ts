@@ -1,4 +1,5 @@
 import {AppReducer} from '@redux/App/types';
+import {CategoriesReducer} from '@redux/Feed/categories.reducer';
 
 export interface ReduxAction {
   type: string;
@@ -7,4 +8,5 @@ export interface ReduxAction {
 
 export interface GlobalState {
   app: AppReducer;
+  categories: CategoriesReducer;
 }

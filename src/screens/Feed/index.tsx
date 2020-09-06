@@ -1,9 +1,29 @@
 import {SearchBar} from '@components/Elements/SearchBar';
-import React, {Component} from 'react';
-import {ListRenderItem, StyleSheet, View, VirtualizedList} from 'react-native';
+import {Banners} from '@components/Feed/Banners';
+import {ComposedCategories} from '@components/Feed/Categories';
+import {FlashSale} from '@components/Feed/FlashSale';
+import {HomePolicy} from '@components/Feed/Policy';
+import {TextLink} from '@components/Feed/TextLink';
+import {loadCategoriesAction} from '@redux/Feed/categories.actions';
+import React, {PureComponent} from 'react';
+import {ListRenderItem, StyleSheet, VirtualizedList} from 'react-native';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {connect, ConnectedProps} from 'react-redux';
 
-class Feed extends Component<any, any> {
+const mapDispatchToProps = {
+  loadCategories: loadCategoriesAction.request
+};
+const connector = connect(null, mapDispatchToProps);
+
+type PropsFromRedux = ConnectedProps<typeof connector>;
+type Props = PropsFromRedux;
+
+class Feed extends PureComponent<Props> {
+  componentDidMount() {
+    // this.props.loadCate();
+    this.props.loadCategories();
+  }
+
   render() {
     return (
       <SafeAreaProvider>
@@ -14,7 +34,7 @@ class Feed extends Component<any, any> {
           showsVerticalScrollIndicator={false}
           keyboardDismissMode={'interactive'}
           keyboardShouldPersistTaps={'always'}
-          data={Array(5)}
+          data={[]}
           getItem={this.getVirtualizedItem}
           getItemCount={this.getVirtualizedItemCount}
           keyExtractor={this.virtualizedKeyExtractor}
@@ -27,63 +47,25 @@ class Feed extends Component<any, any> {
   getVirtualizedItem = (data: any, index: number) => {
     switch (index) {
       case 0: {
-        return (
-          <View
-            style={{
-              height: 300,
-              backgroundColor: `rgba(${Math.random()}, 255,${Math.random()}, 1)`
-            }}
-          />
-        );
+        return <TextLink key={'text-link'} />;
       }
       case 1: {
         return (
-          <View
-            style={{
-              height: 100,
-              backgroundColor: `rgba(${Math.random()}, ${Math.random()},${Math.random()}, 1)`
-            }}
-          />
+          <Banners bannerLocation={1} bannerRatio={0.5} key={'banner-top'} />
         );
       }
       case 2: {
-        return (
-          <View
-            style={{
-              height: 500,
-              backgroundColor: `rgba(255, ${Math.random()},${Math.random()}, 1)`
-            }}
-          />
-        );
+        return <HomePolicy key={'policy'} />;
       }
       case 3: {
-        return (
-          <View
-            style={{
-              height: 300,
-              backgroundColor: `rgba(${Math.random()}, ${Math.random()},255, 1)`
-            }}
-          />
-        );
+        return <ComposedCategories key={'categories'} />;
       }
       case 4: {
-        return (
-          <View
-            style={{
-              height: 100,
-              backgroundColor: `rgba(${Math.random()}, 125,${Math.random()}, 1)`
-            }}
-          />
-        );
+        return <FlashSale key={'flash-sale'} />;
       }
       case 5: {
         return (
-          <View
-            style={{
-              height: 500,
-              backgroundColor: `rgba(109, ${Math.random()},${Math.random()}, 1)`
-            }}
-          />
+          <Banners bannerLocation={1} bannerRatio={0.25} key={'banner-2'} />
         );
       }
       default:
@@ -91,18 +73,19 @@ class Feed extends Component<any, any> {
     }
   };
 
-  getVirtualizedItemCount = () => 5;
+  getVirtualizedItemCount = () => 9;
 
   renderVirtualizedItem: ListRenderItem<any> = ({item}) => item;
 
   virtualizedKeyExtractor = (item: any, index: number) => index.toString();
 }
 
-export default Feed;
+export default connector(Feed);
 
 const styles = StyleSheet.create({
   list: {
-    flex: 1
+    flex: 1,
+    backgroundColor: '#fafafa'
   },
   searchBar: {
     position: 'absolute',

@@ -21,7 +21,7 @@ const persistConfig = {
   version: config.STORE_VERSION,
   storage: AsyncStorage,
   stateReconciler: autoMergeLevel2, // see "Merge Process" section for details.
-  whitelist: ['app']
+  whitelist: ['app', 'categories']
 };
 
 const reducers = persistReducer(persistConfig, rootReducer);
